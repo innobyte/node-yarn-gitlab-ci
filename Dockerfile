@@ -2,8 +2,7 @@ FROM node:8
 MAINTAINER Alin Alexandru <alin.alexandru@innobyte.com>
 MAINTAINER Cosmin Petrescu <cosmin.petrescu@innobyte.com>
 
-RUN . /etc/os-release && \
-    echo "$VERSION_CODENAME"
+RUN apt-get install zip
 
 RUN export CLOUD_SDK_REPO="cloud-sdk" && \
     echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && \
