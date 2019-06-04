@@ -14,4 +14,15 @@ RUN export CLOUD_SDK_REPO="cloud-sdk" && \
     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && \
     apt-get update -y && apt-get install google-cloud-sdk -y
 
+RUN \
+    apt-get update \
+    && apt-get install -y --no-install-recommends \
+    python \
+    python-dev \
+    python-pip \
+    python-yaml \
+    && apt-get clean
+
+RUN pip install awscli
+
 RUN npm install -g cordova cordova-icon cordova-splash firebase-tools
